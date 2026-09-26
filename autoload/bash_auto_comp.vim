@@ -22,8 +22,9 @@ function! bash_auto_comp#completor(opt, ctx) abort
 
   " if there's | or ; or ( in the typed line, use the part behind it
   let l:typed = split(l:typed, '|\|;\|(')[-1]
-  let l:cmd = 'exec ' .. fnameescape(expand('<script>:p:h'))
-        \ .. '/' .. 'bash_auto_comp.sh' .. ' "' .. l:typed .. '"'
+  let l:auto_bash_completion = fnameescape(expand('<script>:p:h:h'))
+        \ .. '/auto-bash-completion/bash_auto_comp.sh'
+  let l:cmd = 'exec ' .. l:auto_bash_completion .. ' "' .. l:typed .. '"'
 
   " do not wait for the job to finish, job will pass output to BashHandler
   let s:bash_job = job_start(

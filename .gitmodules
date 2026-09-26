@@ -1,0 +1,3 @@
+[submodule "auto-bash-completion"]
+	path = auto-bash-completion
+	url = git@github.com:termctrlseq/auto-bash-completion.git
